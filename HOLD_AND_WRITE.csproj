@@ -52,11 +52,47 @@
     <Compile Include="AddBook.Designer.cs">
       <DependentUpon>AddBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeChar.Designer.cs">
+      <DependentUpon>ChangeChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeItem.Designer.cs">
+      <DependentUpon>ChangeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePlace.Designer.cs">
+      <DependentUpon>ChangePlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateChar.Designer.cs">
+      <DependentUpon>CreateChar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateFile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateFile.Designer.cs">
       <DependentUpon>CreateFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateItem.Designer.cs">
+      <DependentUpon>CreateItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePlace.Designer.cs">
+      <DependentUpon>CreatePlace.cs</DependentUpon>
     </Compile>
     <Compile Include="DeleteBook.cs">
       <SubType>Form</SubType>
@@ -64,11 +100,29 @@
     <Compile Include="DeleteBook.Designer.cs">
       <DependentUpon>DeleteBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteChar.Designer.cs">
+      <DependentUpon>DeleteChar.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteFile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeleteFile.Designer.cs">
       <DependentUpon>DeleteFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteItem.Designer.cs">
+      <DependentUpon>DeleteItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletePlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletePlace.Designer.cs">
+      <DependentUpon>DeletePlace.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -96,17 +150,62 @@
     <Compile Include="SaveFile.Designer.cs">
       <DependentUpon>SaveFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowChar.Designer.cs">
+      <DependentUpon>ShowChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowItem.Designer.cs">
+      <DependentUpon>ShowItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowPlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowPlace.Designer.cs">
+      <DependentUpon>ShowPlace.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeChar.resx">
+      <DependentUpon>ChangeChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeItem.resx">
+      <DependentUpon>ChangeItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePlace.resx">
+      <DependentUpon>ChangePlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateChar.resx">
+      <DependentUpon>CreateChar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateFile.resx">
       <DependentUpon>CreateFile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateItem.resx">
+      <DependentUpon>CreateItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePlace.resx">
+      <DependentUpon>CreatePlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteBook.resx">
       <DependentUpon>DeleteBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteChar.resx">
+      <DependentUpon>DeleteChar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteFile.resx">
       <DependentUpon>DeleteFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteItem.resx">
+      <DependentUpon>DeleteItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletePlace.resx">
+      <DependentUpon>DeletePlace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -129,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaveFile.resx">
       <DependentUpon>SaveFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowChar.resx">
+      <DependentUpon>ShowChar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -178,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

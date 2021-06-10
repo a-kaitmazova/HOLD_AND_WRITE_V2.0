@@ -16,7 +16,6 @@ namespace HOLD_AND_WRITE
         public static ImageList images = new ImageList();
 
         public static string[] foldersNames = { "Книги", "Места", "Персонажи", "Предметы"};
-        public static string[] foldersKeys = { "book", "place", "charscter", "item" };
         public static string directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().IndexOf("bin")) + "Hold&Write";
 
         public static string[] textNote;
@@ -46,11 +45,29 @@ namespace HOLD_AND_WRITE
 
         public void OpenFile(object sender, TreeViewEventArgs e)
         {
-            if (TreeView.SelectedNode.Text.Contains(".txt"))//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (TreeView.SelectedNode.Name.Contains("Книги\\**.txt"))
             {
-                Notepad.LoadFile(TreeView.SelectedNode.Name, RichTextBoxStreamType.PlainText);
+                labelName.Text = TreeView.SelectedNode.Text;
+                Notepad.Text = File.ReadAllText(TreeView.SelectedNode.Name);
                 Synopsis.Text = File.ReadAllText(TreeView.SelectedNode.Name.Replace(TreeView.SelectedNode.Text, "@_" + TreeView.SelectedNode.Text));
             }
+            if (TreeView.SelectedNode.Name.Contains("Персонажи\\**.txt"))
+            {
+                ShowChar c = new ShowChar();
+                c.path =
+                c.Show();
+            }
+            if (TreeView.SelectedNode.Name.Contains("Места\\**.txt"))
+            {
+                ShowPlace c = new ShowPlace();
+                c.Show();
+            }
+            if (TreeView.SelectedNode.Name.Contains("Предметы\\**.txt"))
+            {
+                ShowItem c = new ShowItem();
+                c.Show();
+            }
+
         }
 
         //-------------------------------------------------------------------------------------
@@ -78,17 +95,17 @@ namespace HOLD_AND_WRITE
         {
             TreeView.BeginUpdate();
 
-            TreeView.Nodes.Add(GetNode(foldersKeys[(int)MainFolders.Books], foldersNames[(int)MainFolders.Books]));
-            TreeView.Nodes.Add(GetNode(foldersKeys[(int)MainFolders.Places], foldersNames[(int)MainFolders.Places]));
-            TreeView.Nodes.Add(GetNode(foldersKeys[(int)MainFolders.Characters], foldersNames[(int)MainFolders.Characters]));
-            TreeView.Nodes.Add(GetNode(foldersKeys[(int)MainFolders.Items], foldersNames[(int)MainFolders.Items]));
+            TreeView.Nodes.Add(GetNode(foldersNames[(int)MainFolders.Books]));
+            TreeView.Nodes.Add(GetNode(foldersNames[(int)MainFolders.Places]));
+            TreeView.Nodes.Add(GetNode(foldersNames[(int)MainFolders.Characters]));
+            TreeView.Nodes.Add(GetNode(foldersNames[(int)MainFolders.Items]));
 
             TreeView.Sort();
             
             TreeView.EndUpdate();
         }
 
-        public TreeNode GetNode(string key, string mainFolderName)
+        public TreeNode GetNode(string mainFolderName)
         {
             TreeNode motherNode = new TreeNode();
             if (Directory.GetDirectories(directory + @"\" + mainFolderName).Length > 0)
@@ -254,17 +271,126 @@ namespace HOLD_AND_WRITE
 
         private void CreateChar(object sender, EventArgs e)
         {
+            CreateChar cr = new CreateChar();
+            cr.ShowDialog();
 
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
         }
 
         private void ChangeChar(object sender, EventArgs e)
         {
+            ChangeChar cc = new ChangeChar();
+            cc.ShowDialog();
 
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
         }
 
         private void DeleteChar(object sender, EventArgs e)
         {
+            DeleteChar dc = new DeleteChar();
+            dc.ShowDialog();
 
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        //-----------------------------------------------------------------------------------
+
+        private void CreatePlace(object sender, EventArgs e)
+        {
+            CreatePlace dc = new CreatePlace();
+            dc.ShowDialog();
+
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        private void ChangePlace(object sender, EventArgs e)
+        {
+            ChangePlace dc = new ChangePlace();
+            dc.ShowDialog();
+
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        private void DeletePlace(object sender, EventArgs e)
+        {
+            DeletePlace dc = new DeletePlace();
+            dc.ShowDialog();
+
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        //-----------------------------------------------------------------------------------
+
+        private void CreateItem(object sender, EventArgs e)
+        {
+            CreateItem dc = new CreateItem();
+            dc.ShowDialog();
+
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        private void ChangeItem(object sender, EventArgs e)
+        {
+            ChangeItem dc = new ChangeItem();
+            dc.ShowDialog();
+
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        private void DeleteItem(object sender, EventArgs e)
+        {
+            DeleteItem dc = new DeleteItem();
+            dc.ShowDialog();
+
+            TreeView.Nodes.Clear();
+
+            SetTreeView();
+
+            TreeView.ExpandAll();
+        }
+
+        //-----------------------------------------------------------------------------------
+
+        private void Info_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Справка\n\n" +
+                "Файловая система - каталог папок \"Книги\",\"Места\",\"Персонажи\" и \"Предметы\". В \"Книги\" входят папки (по имени книги) с файлами текста и синопсиса в формате .txt" +
+                ", в \"Места\",\"Персонажи\" и \"Предметы\" только файлы .txt. При этом, читать файлы \"Книг\" будет удобно и с любого другого текстового редкатора, а файлы \"Мест\",\"Персонажей\" и \"Предметов\" - нет, их оформление заточено под отображение в форме." +
+                "\n\nПоле ввода текста в середине окна - Основное поле ввода - записывает файлы в каталог \"Книги\\Название_книги\\файл.txt, их можно найти в папке \"Hold&Write\" проекта." +
+                "\n\nСинопсис - дополнительное поле ввода, файлы \"Синопсиса\" сохраняются вместе с файлами основного поля ввода. Название файлов \"Синопсиса\" состоит из имени файла, к которму пишется синопсис, и добваленными вначало двумя символами \"@_\".",
+                "Справка", MessageBoxButtons.OK);
         }
     }
 }

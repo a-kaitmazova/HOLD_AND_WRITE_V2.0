@@ -84,13 +84,16 @@ namespace HOLD_AND_WRITE
             TreeNode node = new TreeNode();
             foreach (var e in Directory.GetFiles(path))
             {
-                TreeNode temp = new TreeNode();
-                temp.Text = e.Substring(e.IndexOf(folderName) + folderName.Length + 1);
-                temp.Name = e;
-                temp.ImageIndex = 2;
-                temp.SelectedImageIndex = 2;
-                temp.Name = e;
-                node.Nodes.Add(temp);
+                if (!e.Contains("@_"))
+                {
+                    TreeNode temp = new TreeNode();
+                    temp.Text = e.Substring(e.IndexOf(folderName) + folderName.Length + 1);
+                    temp.Name = e;
+                    temp.ImageIndex = 2;
+                    temp.SelectedImageIndex = 2;
+                    temp.Name = e;
+                    node.Nodes.Add(temp);
+                }
             }
 
             node.ImageIndex = 1;

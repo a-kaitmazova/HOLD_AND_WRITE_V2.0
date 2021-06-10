@@ -39,7 +39,7 @@ namespace HOLD_AND_WRITE
                     textBoxFileName.Text = "";
                 }
                 else
-                    MessageBox.Show("Файл с таким именем уже существует! Придумайте что-нибудь другое.", "Уже есть!", MessageBoxButtons.OK);
+                    MessageBox.Show("Файл с именем " + textBoxFileName.Text + " уже существует! Придумайте что-нибудь другое.", "Уже есть!", MessageBoxButtons.OK);
             }
         }
     
